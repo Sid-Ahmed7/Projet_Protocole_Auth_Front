@@ -1,0 +1,23 @@
+.directory {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 10px;
+    color: white;
+  }
+  
+  .button,
+  .span {
+    cursor: pointer;
+    padding: 5px 10px;
+  }
+  
+  .button.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+  
+  .button.active {
+    font-weight: bold;
+    text-decoration: underline;
+  }
+  

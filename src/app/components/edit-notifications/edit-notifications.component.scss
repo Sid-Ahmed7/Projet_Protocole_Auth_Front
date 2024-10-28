@@ -1,0 +1,31 @@
+@import "../../../import.scss";
+
+* {
+    @include defaultStyles;
+}
+
+.edit-notification-subpage {
+    margin: 2rem;
+}
+
+.form {
+    display: flex;
+    gap: 5rem;
+    margin: 1.5rem 0 3rem;
+}
+
+h2 {
+    font-weight: bold;
+}
+
+.button {
+    display: flex;
+    justify-content: end;
+}
+
+@media screen and (max-width:768px) {
+    .form {
+        flex-direction: column;
+        gap: 2rem;
+    }
+}

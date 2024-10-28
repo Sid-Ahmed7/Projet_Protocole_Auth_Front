@@ -1,0 +1,14 @@
+.star-rating{
+    max-height: 30px;
+    max-width: 30px;
+    cursor: pointer;
+
+    &:hover{
+        fill: #9D4EDD;
+    }
+}
+
+.rating-wrapper{
+    display: flex;
+    justify-content: center;
+}

@@ -1,0 +1,15 @@
+<section class="user-section">
+    <div class="user-container">
+        <div class="user-header">
+            <div class="user-title">
+                <h2>Derniers Utilisateurs Inscrits</h2>
+            </div>
+        </div> 
+        @for (user of users; track user.id) {
+            <app-profiles-admin [id]="user.id" [username]="user.username" [email]="user.email"></app-profiles-admin>
+        }
+        
+    </div>
+</section>
+
+

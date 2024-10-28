@@ -1,0 +1,59 @@
+@if(filterVisible) {
+<div class="fond" (click)="toggleFilters()"></div>
+}
+
+<div class="toggle-button">
+    <app-custom-button [btnType]="'button'" [class]="'btn-edit'" [text]="'Filtrer'"
+        (click)="toggleFilters()"></app-custom-button>
+</div>
+
+<div class="container" [ngClass]="{'viewMobile': filterVisible}">
+    <div class="card">
+        @if(filterVisible) {
+        <button class="close-button" (click)="toggleFilters()">X</button>
+        }
+        <p>Filtrer Par</p>
+        <div class="status">
+            <label for="inProgress">
+                <input type="checkbox" id="inProgress" [(ngModel)]="filters.isInProgress"> En cours
+            </label>
+            <label for="completed">
+                <input type="checkbox" id="completed" [(ngModel)]="filters.isCompleted"> Terminé
+            </label>
+        </div>
+        <div class="filterBy">
+            <div class="filter">
+                <label for="filter_platform">Filtrer par plateformes:</label>
+                <select id="filter_platform" [(ngModel)]="filters.platform">
+                    <option value="">----</option>
+                </select>
+            </div>
+            <div class="filter">
+                <label for="filter_genre">Filtrer par genre:</label>
+                <select id="filter_genre" [(ngModel)]="filters.genre">
+                    <option value="">----</option>
+                </select>
+            </div>
+            <div class="filter">
+                <label for="filter_score">Filtrer par score:</label>
+                <select id="filter_score" [(ngModel)]="filters.score">
+                    <option value="">----</option>
+                </select>
+            </div>
+            <div class="filter">
+                <label for="filter_year">Filtrer par année:</label>
+                <select id="filter_year" [(ngModel)]="filters.year">
+                    <option value="">----</option>
+                </select>
+            </div>
+        </div>
+        @if(filterVisible) {
+            <div class="btn">
+                <app-custom-button [btnType]="'button'" [class]="'btn'" [text]="'Appliquer'"></app-custom-button>
+                <app-custom-button [btnType]="'button'" [class]="'btn'" [text]="'Annuler'"
+                (click)="resetFilters()"></app-custom-button>
+            </div>
+
+            }
+    </div>
+</div>

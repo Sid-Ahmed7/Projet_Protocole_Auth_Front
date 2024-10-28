@@ -1,0 +1,12 @@
+<nav class="directory">
+  <button class="button" (click)="goToPreviousPage()" [class.disabled]="currentPage === 1"><</button>
+  <button
+    *ngFor="let page of pages"
+    class="button"
+    (click)="sendPage(page)"
+    [class.active]="page === currentPage">
+    {{ page }}
+  </button>
+  <span *ngIf="showEllipsis" class="span">...</span>
+  <button class="button" (click)="goToNextPage()" [class.disabled]="currentPage === totalPages">></button>
+</nav>

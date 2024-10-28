@@ -1,0 +1,67 @@
+<div class="game-filter">
+    <h2 class="game-title">Liste des jeux</h2>
+    <div class="select-display" >
+        <div class="input-with-icon">
+        <input class="filter-name" placeholder="Checher par nom..." [(ngModel)]="inputName" (input)="applyFilters()">
+        <span class="icon-container">
+            <img src="../../../assets/pictures/search-icon.png" alt="Valider" class="icon-image">
+        </span>
+        </div>
+    </div>
+
+    <div class="select-display">
+        <div class="select-item">
+            <h3>Platforme</h3>
+        <select [(ngModel)]="selectedPlatform" (change)="applyFilters()" class="selecteur">
+                <option value="">All Platforms</option>
+                <option *ngFor="let platform of platforms" [value]="platform">{{ platform }}</option>
+
+            </select>
+        </div>
+        <div class="select-item">
+            <h3>Score</h3>
+            <select [(ngModel)]="selectedScore" (change)="applyFilters()" class="selecteur">
+                <option value=""></option>
+                <option value="5">5 Étoile</option>
+                <option value="4">4 Étoile</option>
+                <option value="3">3 Étoile</option>
+                <option value="2">2 Étoile</option> 
+                <option value="1">1 Étoile</option> 
+            </select>
+        </div>
+        <div class="select-item">
+            <h3>Genre</h3>
+            <select [(ngModel)]="selectedGenre" (change)="applyFilters()" class="selecteur">
+                <option value="">All Genres</option>
+                <option *ngFor="let genre of genres" [value]="genre">{{ genre }}</option>
+            </select>
+        </div>
+        <div class="select-item">
+            <h3>Année</h3>
+            <select [(ngModel)]="selectedYear" (change)="applyFilters()" class="selecteur">
+                <option value=""></option>
+                <option value="{{year}}" *ngFor="let year of years">{{year}}</option>
+            </select>
+        </div>
+    </div>
+</div>
+<div>
+    @if(errorMessage) {<p>{{ errorMessage }}</p>}
+</div>
+<ul class="game-section">
+    <li class="card-game" *ngFor="let game of displayedGames">
+        <a [routerLink]="['/page-jeu', game.name]">
+            @if(game.cover){
+                <img [src]="game.cover" [alt]="game.name">
+            } @else {
+                <img [src]="gameDefaultCover" [alt]="game.name">}
+            <h3 class="game-name">{{game.name}}</h3>
+        </a>
+    </li>
+</ul>
+
+<app-pagination
+  [totalPages]="totalPages"
+  [currentPage]="currentPage"
+  (pageChange)="onPageChange($event)">
+</app-pagination>

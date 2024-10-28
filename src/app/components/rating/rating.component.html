@@ -1,0 +1,7 @@
+<div class="rating-wrapper" (mouseleave)="resetStars()" >
+  <ng-container *ngFor="let star of stars; index as i" >
+      <svg (mouseenter)="fillStars(i + 1)" (click)="setUserRating(i + 1)" [attr.fill]="i < hoverRating || i < userRating  || i < filledStars ? '#9D4EDD' : '#fff'" class="star-rating">
+        <path d="M12 .587l3.668 7.568L24 9.344l-6 6.16L19.8 24 12 20.056 4.2 24l1.8-8.496L0 9.344l8.332-1.189L12 .587z"/>
+      </svg>
+  </ng-container>
+</div>

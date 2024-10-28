@@ -1,0 +1,26 @@
+<div class="edit-page-container">
+    <nav class="navigation-container">
+        <div class="return-to-profile">
+            <img src="../../../assets/pictures/arrow-left.svg" alt="return-arrow">
+            <a [routerLink]="['/profil', slug]">Retour</a>
+        </div>
+        <ul class="edit-menu">
+            <li>
+                <img src="../../../assets/pictures/pencil.svg" alt="pencil">
+                <a [routerLink]="['./profil']" routerLinkActive="active">Modifier le profil</a>
+            </li>
+            <li>
+                <img src="../../../assets/pictures/bell-notification.svg" alt="bell">
+                <a [routerLink]="['./notifications']" routerLinkActive="active">Notifications</a>
+            </li>
+            <li>
+                <img src="../../../assets/pictures/padlock-close.svg" alt="closed padlock">
+                <a [routerLink]="['./securite']" routerLinkActive="active">Sécurité</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="subpage">
+        <router-outlet></router-outlet>
+    </div>
+</div>

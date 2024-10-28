@@ -1,0 +1,64 @@
+@use "../../../import" as *;
+
+.user-section {
+
+    background-color: #171515;
+    padding: 20px; 
+    width: 100%;
+    box-sizing: border-box; 
+    
+}
+
+.user-container {
+    background-color: #292729;
+    padding: 20px;
+    .user-header {
+        .user-title {
+            h2 {
+                color: #fff;
+                margin-bottom: 1rem;
+                
+            }
+        }
+    }
+
+    .user-content {
+        .user-row {
+            display: flex;
+            
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            
+            p {
+                color: #fff;
+                padding: 2%;
+                
+            }
+
+            .delete-button {
+                color: #fff;
+                background-color: $mainColor;
+                border-radius: 10px;
+                padding-left: 3%;
+                padding-right: 3%;
+                margin-left: auto;
+            }
+        }
+
+        .user-divider {
+            border: 3px solid $mainColor;
+            border-radius: 3px;
+        }
+    }
+}
+
+.directory{
+    color: #fff;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    margin: 0 auto;
+    width: max-content;
+
+}
+

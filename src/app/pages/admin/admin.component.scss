@@ -1,0 +1,41 @@
+
+@use "../../../import" as *;
+
+$sidebar-width: 200px;
+
+.container {
+    padding-left: $sidebar-width;
+    
+}
+
+.navbar-vertical {
+    height: 100vh;
+    padding: 20px;
+    padding-top: 50px;
+    top: 0;
+    left: 0;
+    position: fixed;
+    width: $sidebar-width;
+    background-color: #292729;
+    color: white;
+      
+}
+
+.navbar-vertical ul {
+    list-style: none;
+
+}
+
+.navbar-vertical li {
+    margin-bottom: 10px;
+}
+
+.navbar-vertical a {
+    text-decoration: none;
+
+}
+
+li .active {
+    color: $mainColor;
+    font-weight: bold;
+}

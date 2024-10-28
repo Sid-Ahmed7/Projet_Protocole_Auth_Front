@@ -1,0 +1,43 @@
+
+<app-homepage-banner></app-homepage-banner>
+
+<main id="homepage__introduction">
+  <section class="homepage__introduction--title-wrapper">
+    <h1 class="homepage__title">Did You Beat It?</h1>
+    <p class="homepage__introduction--text">
+      Bienvenue sur "Did You Beat It ?", votre site de référence pour suivre et organiser votre collection de jeux vidéo. Créez des playlists personnalisées, suivez vos progrès et gérez votre backlog de jeux facilement.
+    </p>
+  </section>
+
+  @if(isConnected === true) {
+    <section id="homepage__lastgame">
+      <app-last-game-home></app-last-game-home>
+    </section>
+  } @else {
+    <section class="homepage__introduction--column">
+      <img src="../../../assets/pictures/Helldivers-2-scaled.jpg" alt="Game of the week" class="homepage__introduction--column-img">
+      <div class="homepage__introduction--text-wrapper">
+        <h2 class="column__title">Tu cherches un jeu ? Nous l'avons !</h2>
+        <p class="column__text">Notre base de données exhaustive vous permet de retrouver presque tous les jeux, qu'ils soient récents ou des classiques intemporels. Explorez et ajoutez à votre collection des milliers de titres couvrant toutes les plateformes et tous les genres. Grâce à des mises à jour régulières, notre catalogue reste toujours à jour avec les dernières sorties. Vous ne manquerez jamais de découvrir de nouveaux jeux passionnants à essayer.</p>
+    
+        <a class="home__links" [routerLink]="['/jeux']">Découvrir les jeux</a>
+        
+      </div>
+    </section>
+    <section class="homepage__introduction--column">
+      <img src="../../../assets/pictures/galerie_jeux.png" alt="Game of the week" class="homepage__introduction--column-img home__second--img">
+      <div class="homepage__introduction--text-wrapper">
+        <h2 class="column__title">Notez & Votez</h2>
+        <p class="column__text">Partagez vos expériences avec la communauté en notant et commentant les jeux que vous avez terminés. Consultez les avis des autres joueurs pour découvrir de nouveaux jeux et enrichir votre backlog. Engagez-vous dans des discussions passionnantes et échangez des astuces avec d'autres passionnés. Créez des liens avec des joueurs partageant les mêmes intérêts et découvrez ensemble de nouveaux horizons de jeu.</p>
+
+        <a class="home__links" [routerLink]="['/inscription']">S'inscrire maintenant</a>
+      </div>
+  
+    </section>
+  }
+  <section id="homepage__recommandation">
+    <app-global-recommendation></app-global-recommendation>
+  </section>
+</main>
+
+

@@ -1,0 +1,40 @@
+<section class="edit-notification-subpage">
+    <div>
+        <h2>Me notifier</h2>
+        <form class="form">
+            <div class="form-group">
+                <input type="radio" id="always" name="notification-frequency" value="always">
+                <label for="always">Toujours</label>
+            </div>
+            <div class="form-group">
+                <input type="radio" id="sometimes" name="notification-frequency" value="sometimes">
+                <label for="sometimes">Parfois</label>
+            </div>
+            <div class="form-group">
+                <input type="radio" id="never" name="notification-frequency" value="never">
+                <label for="never">Jamais</label>
+            </div>
+        </form>
+    </div>
+    <div>
+        <h2>Notifications liées aux activités des amis</h2>
+        <form class="form">
+            <div class="form-group">
+                <input type="radio" id="friendRequest" name="notification-friends" value="friendRequest">
+                <label for="friendRequest">Demande d'ami</label>
+            </div>
+        </form>
+    </div>
+    <div>
+        <h2>Notifications liées aux nouveautés</h2>
+        <form class="form">
+            <div class="form-group">
+                <input type="radio" id="newGame" name="notification-new-games" value="newGame">
+                <label for="newGame">Nouveaux jeux disponibles</label>
+            </div>
+        </form>
+    </div>
+    <div class="button">
+        <app-custom-button [btnType]="'submit'" [text]="textButton" [class]="'btn'"></app-custom-button>
+    </div>
+</section>

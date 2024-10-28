@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="card">
+        <h2>Se connecter</h2>
+        <form #loginForm="ngForm" (ngSubmit)="loginForm.valid && login()" >
+            <div class="form-group">
+                <input type="email" id="email" name="email" [(ngModel)]="newUser.email" #email="ngModel"
+                    placeholder="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                @if(email.errors && email.errors['required'] && email.touched) {
+                <p [ngStyle]="{color: 'red'}">L'email est requis</p>
+                } @else if (email.errors && email.errors['pattern']) {
+                <p [ngStyle]="{color: 'red'}">L'email est invalid</p>
+                }
+            </div>
+            <div class="form-group">
+                <input type="password" id="password" name="password" [(ngModel)]="newUser.password" #password="ngModel"
+                    placeholder="Mot de passe" required minlength="8"
+                    pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$">
+                @if (password.errors && password.errors['required'] && password.touched) {
+                <p [ngStyle]="{color: 'red'}">Le mot de passe est requis</p>
+                } @else if(password.errors && password.errors['pattern']) {
+                <p [ngStyle]="{color: 'red'}">
+                    Le mot de passe doit contenir au moins un chiffre, une lettre minuscule, un
+                    lettre majuscule, un caractère spécial et comporter au moins 8 caractères
+                    long
+                </p>
+                }
+            </div>
+            <app-custom-button [btnType]="'submit'" [class]="'btn'" [text]="btnText"></app-custom-button>
+
+            <div class="form-links">
+                <a [routerLink]="['/']">Mot de passe oublié ?</a>
+                <p>Vous n'avez pas de compte ? <a [routerLink]="['/inscription']">Créer un compte</a></p>
+            </div>
+        </form>
+    </div>
+</div>

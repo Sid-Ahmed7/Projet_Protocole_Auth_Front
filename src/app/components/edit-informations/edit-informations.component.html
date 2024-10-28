@@ -1,0 +1,99 @@
+<section class="edit-information-subpage">
+    <div class="modify-images">
+        <div class="modify-banner">
+            <h2>Bannière</h2>
+            <div class="image"> 
+                <img [src]="userData?.bannerPicture ? userData?.bannerPicture : './assets/pictures/pexels-ian-panelo-8227166.jpg'" alt="bannerImg" class="banner-img">
+                <input type="text" id="bannerUrl" name="bannerUrl" class="banner-url" [(ngModel)]="bannerUrl"
+                    placeholder="Coller ici l'url de votre image">
+                    <app-custom-button [btnType]="'submit'" [text]="textButton" [class]="'btn'" (click)="onUploadBanner(userData?.id!)"></app-custom-button>
+            </div> 
+        </div>
+        <div class="modify-profile-picture">
+            <h2>Photo de profil</h2>
+            <div class="image">   
+                <img [src]="userData?.profilePicture ? userData?.profilePicture : './assets/pictures/spidey.jpg'" alt="profileImg" class="profile-img">
+                <input type="text" id="profilePictureUrl" name="profilePictureUrl" class="profile-picture-url" [(ngModel)]="profilePictureUrl"
+                    placeholder="Coller ici l'url de votre image">
+                    <app-custom-button [btnType]="'submit'" [text]="textButton" [class]="'btn'" (click)="onUploadProfile(userData?.id!)"></app-custom-button>
+            </div> 
+        </div>
+    </div>
+    <div class="modify-informations">
+        <h2>Informations de l'utilisateur</h2>
+        <form #updateForm="ngForm" (ngSubmit)="updateForm.valid">
+
+            <div class="form-group">
+                <h3>Nom d'utilisateur</h3>
+                <input type="text" id="username" name="username" placeholder="Nom d'utilisateur"
+                    [(ngModel)]="updateUser.username" required minlength="3" maxlength="15" #username="ngModel">
+                @if(username.errors && username.errors['required'] && username.touched) {
+                <p [ngStyle]="{color: 'red'}">Le nom d'utilisateur est requis</p>
+                } @else if (username.errors && username.errors['minlength']) {
+                <p [ngStyle]="{color: 'red'}">Le nom d'utilisateur doit comporter au moins 2 caractères</p>
+                } @else if (username.errors && username.errors['maxlength']) {
+                <p [ngStyle]="{color: 'red'}">Le nom d'utilisateur doit comporter au maximum 15 caractères</p>
+                }
+            </div>
+
+            <div class="form-group">
+                <h3>Email</h3>
+                <input type="text" id="email" name="email" placeholder="Email" [(ngModel)]="updateUser.email" required
+                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" #email="ngModel">
+                @if(email.errors && email.errors['required'] && email.touched) {
+                <p [ngStyle]="{color: 'red'}">L'email est requis</p>
+                } @else if (email.errors && email.errors['pattern']) {
+                <p [ngStyle]="{color: 'red'}">L'email est invalid</p>
+                }
+            </div>
+
+            <div class="form-group">
+                <h3>Biographie</h3>
+                <textarea type="text" id="biography" name="biography" class="biography" placeholder="Biographie"
+                    [(ngModel)]="updateUser.biography" #username="ngModel"></textarea>
+            </div>
+
+            <div class="form-group">
+                <h3>Nouveau mot de passe</h3>
+                <input type="password" id="password" name="password" placeholder="Mot de passe"
+                    [(ngModel)]="updateUser.password" minlength="8"
+                    pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{8,}$" #password="ngModel">
+                @if (password.errors && password.touched) {
+                <p [ngStyle]="{color: 'red'}">Le mot de passe est requis</p>
+                } @else if(password.errors && password.errors['pattern']) {
+                <p [ngStyle]="{color: 'red'}">
+                    Le mot de passe doit contenir au moins un chiffre, une lettre minuscule, un
+                    lettre majuscule, un caractère spécial et comporter au moins 8 caractères
+                    long
+                </p>
+                } @else if (updateUser.password !== updateUser.confirmPassword){
+                <p [ngStyle]="{color: 'red'}">Les mots de passe ne correspondent pas</p>
+                }
+            </div>
+
+            <div class="form-group">
+                <h3>Confirmez votre nouveau mot de passe</h3>
+                <input type="password" id="confirm_password" name="confirm_password" class="confirm_password" [(ngModel)]="updateUser.confirmPassword"
+                    placeholder="Confirmez le mot de passe" minlength="8"
+                    pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{8,16}$" #confirmPassword="ngModel">
+                @if (confirmPassword.errors && confirmPassword.touched) {
+                <p [ngStyle]="{color: 'red'}">Veuillez confirmez le mot de passe</p>
+                } @else if(confirmPassword.errors && confirmPassword.errors['pattern'] ) {
+                <p [ngStyle]="{color: 'red'}">
+                    Le mot de passe doit contenir au moins un chiffre, une lettre minuscule, un
+                    lettre majuscule, un caractère spécial et comporter au moins 8 caractères
+                    long
+                </p>
+                } @else if (updateUser.password !== updateUser.confirmPassword){
+                <p [ngStyle]="{color: 'red'}">Passwords do not match</p>
+                }
+            </div>
+            @if (messageOnUpdate !== '') {
+                <p class="update-message">{{ messageOnUpdate }}</p>
+            }
+            <div class="button">
+                <app-custom-button [btnType]="'submit'" [text]="textButton" [class]="'btn'" (click)="onSubmitForm(userData?.id!)"></app-custom-button>
+            </div>
+        </form>
+    </div>
+</section>

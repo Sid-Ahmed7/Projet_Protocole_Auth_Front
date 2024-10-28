@@ -1,0 +1,71 @@
+@use "../../../import" as *;
+
+.edit-page-container {
+    display: flex;
+    min-height: calc(100vh - 50px - 50px);
+}
+
+.edit-menu li, .return-to-profile {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    a {
+        margin-left: 2rem;
+    }
+}
+
+.navigation-container {
+    width: 350px;
+    border-right: solid 1px $borderColor;
+    .return-to-profile {
+        margin: 2rem 1rem;
+    }
+    .edit-menu {
+        li {
+            margin: 2rem;
+            img {
+                height: 60px;
+                width: 60px;
+                object-fit: contain;
+            }
+        }
+    }
+}
+
+.active {
+    color: $mainColor;
+    font-weight: bold;
+}
+
+.subpage {
+    flex-grow: 1;
+}
+
+
+@media  screen and (max-width: 1024px) {
+    .edit-page-container {
+        flex-direction: column;
+    }
+    .navigation-container {
+        width: 100%;
+        border: none;
+        .return-to-profile {
+            display: none;
+        }
+        .edit-menu {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            overflow: auto;
+            li {
+                img {
+                    display: none;
+                }
+                a {
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+    
+}

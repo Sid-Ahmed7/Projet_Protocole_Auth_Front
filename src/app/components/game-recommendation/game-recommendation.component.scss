@@ -1,0 +1,36 @@
+h2 {
+    padding-bottom: 2rem;
+    font-size: 54px;
+    font-weight: bold;
+}
+
+ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    
+    li:not(:last-child) {
+        padding-right: 2rem;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    ul {
+        flex-direction: column;
+        li:not(:last-child) {
+            padding-right: 0;
+            padding-bottom: 2rem;
+        }
+    }
+    h2 {
+        font-size: 34px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    h2 {
+        font-size: 24px;
+    }
+}

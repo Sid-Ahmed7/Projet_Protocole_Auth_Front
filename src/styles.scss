@@ -1,0 +1,83 @@
+@use "./import" as *;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: inherit;
+  font-family: "Roboto", sans-serif;
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+
+// FONT STYLE 
+
+@font-face {
+  font-family: Inter;
+  src: url('assets/fonts/Inter/Inter-VariableFont_slnt\,wght.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+}
+
+
+button,
+input {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  background-color: $inputColor;
+  border: none;
+  outline: none;
+}
+
+$mainColor: #fff;
+$secondaryColor: #171515;
+$purple: #9D4EDD;
+$titleFont: "Roboto", sans-serif;
+$mainFont: "Inter", sans-serif;
+
+h1,
+h2,
+h3,
+h4,
+p, a, input, textarea, label {
+  color: $mainColor;
+}
+
+h1, h2, h3, h4 {
+  font-family: $titleFont;
+}
+
+p, a, span, button, input {
+  font-family: $mainFont;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: 800;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+h3 {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+span {
+  color: $mainColor;
+}

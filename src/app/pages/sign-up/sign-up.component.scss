@@ -1,0 +1,45 @@
+@import "../../../import.scss";
+
+* {
+    @include defaultStyles;
+}
+
+.container {
+   @include formStyle;
+
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+    .container {
+        max-width: 80%;
+
+        .card {
+            min-height: 80vh;
+            padding: rem(30) rem(15) rem(15) rem(15);
+
+            h2 {
+                font-size: rem($fontSize_title - 2);
+                margin-bottom: rem(15);
+            }
+
+
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .container {
+        max-width: 90%;
+
+        .card {
+            min-height: 70vh;
+            padding: rem(20) rem(10) rem(10) rem(10);
+
+            h2 {
+                font-size: rem($fontSize_title - 4);
+                margin-bottom: rem(10);
+            }
+
+        }
+    }
+}

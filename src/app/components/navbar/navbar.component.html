@@ -1,0 +1,19 @@
+<header>
+<nav class="top-nav" >
+    <div>
+      <a [routerLink]="['/home']"><img src="..\..\assets\pictures\did-you-beat-it--high-resolution-logo-transparent.svg" alt="logo" id="logo"></a>
+    </div>
+    <input id="menu-toggle" type="checkbox" />
+    <label class='menu-button-container' for="menu-toggle">
+    <div class='menu-button'></div>
+  </label>
+    <ul class="menu">
+      <li><a [routerLink]="['/jeux']" (click)="closeMenu()">Jeux</a></li>
+      <li *ngIf="isConnected == true"><a [routerLink]="['/profil', slug]" (click)="closeMenu()">Profil</a></li>
+      <li *ngIf="isConnected == false"><a [routerLink]="['/connexion']" (click)="closeMenu()">Se connecter</a></li>
+      <li *ngIf="isConnected == false"><a [routerLink]="['/inscription']" (click)="closeMenu()">S'inscrire</a></li>
+      <li *ngIf="isConnected == true && isAdmin == true"><a [routerLink]="['/admin']" (click)="closeMenu()">Admin</a></li>
+      <li *ngIf="isConnected == true"><a [routerLink]="['/home']" (click)="logout()">Déconnexion</a></li>
+    </ul>
+</nav>
+</header>

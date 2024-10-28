@@ -1,0 +1,65 @@
+@import "../../../import";
+
+.btn {
+    padding: rem(10) rem(20);
+    font-size: rem(14);
+    font-family: $defaultFont ;
+    font-weight: 500;
+    border: none;
+    color: white;
+    background-color: $mainColor;
+    border-radius: rem(10);
+    width: 120px;
+    cursor: pointer;
+}
+
+.btn-finished {
+    padding: rem(10) rem(20);
+    font-size: rem(14);
+    font-family: $defaultFont ;
+    font-weight: 500;
+    border: none;
+    color: $mainColor;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: rem(10);
+    width: 120px;
+    cursor: pointer;
+}
+
+.btn-edit {
+    padding: rem(10);
+    font-size: rem(14);
+    font-family: $defaultFont ;
+    font-weight: 500;
+    border: none;
+    color: $mainColor;
+    background-color: white;
+    border-radius: rem(10);
+    width: 120px;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+
+    .btn {
+        font-size: rem(12);
+        width: 120px;
+    }
+
+    .btn-edit {
+        font-size: rem(12);
+        width: 120px;
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+    .btn {
+        font-size: rem(12);
+        width: 120px;
+    }
+    .btn-edit {
+        font-size: rem(12);
+        width: 120px;
+    }
+}

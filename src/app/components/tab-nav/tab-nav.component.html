@@ -1,0 +1,43 @@
+<div class="container">
+
+    <nav class="tab-nav">
+        <a class="tab-nav__games" [ngClass]="{ 'active': currentSection === 'liste-des-jeux' }" (click)="showSection('liste-des-jeux')">Liste
+            des Jeux</a>
+        <a class="tab-nav__stats" [ngClass]="{ 'active': currentSection === 'statistiques' }"
+            (click)="showSection('statistiques')">Statistiques</a>
+        <a class="tab-nav__friends" [ngClass]="{ 'active': currentSection === 'amis' }" (click)="showSection('amis')">Amis</a>
+    </nav>
+
+    @if (currentSection === 'liste-des-jeux') {
+        <div>
+            @if(errorMessage) {
+            <p>{{ errorMessage }}</p>
+            }
+    </div>
+    <div class="content_list_game">
+        <div class="filter">
+            <app-filter></app-filter>
+        </div>
+        <!-- Afficher la liste des jeux ajoutés par l'utilisateur -->
+        <div class="game">
+            @if(!games.length) {
+                <p class="text">Oups! Ta liste est vide, découvres de nouveaux jeux <a class="game-link" [routerLink]="['/jeux']">ici</a></p>
+
+            } @else {
+            <ul>
+                @for( game of games; track game.id) {
+                    
+                        <li><app-card-game-small [gameName]="game.name" [gameCover]="game.cover"
+                            [gameGenre]="game.genre" [release]="game.releaseDate"></app-card-game-small></li>
+                }
+            </ul>
+        }
+        </div>
+    </div>
+    } @else if(currentSection === 'statistiques') {
+    <!-- Afficher les graphs -->
+    } @else if(currentSection === 'amis') {
+    <!-- Afficher la liste d'amis -->
+    }
+
+</div>

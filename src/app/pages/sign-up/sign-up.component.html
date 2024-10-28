@@ -1,0 +1,64 @@
+<div class="container">
+    <div class="card">
+        <h2>S'inscrire</h2>
+        <form #signUpForm="ngForm" (ngSubmit)="signUpForm.valid && register()">
+
+            <div class="form-group">
+                <input type="text" id="username" name="username" placeholder="Nom d'utilisateur"
+                    [(ngModel)]="signUp.username" required minlength="3" maxlength="15" #username="ngModel">
+                @if(username.errors && username.errors['required'] && username.touched) {
+                <p [ngStyle]="{color: 'red'}">Le nom d'utilisateur est requis</p>
+                } @else if (username.errors && username.errors['minlength']) {
+                <p [ngStyle]="{color: 'red'}">Le nom d'utilisateur doit comporter au moins 2 caractères</p>
+                } @else if (username.errors && username.errors['maxlength']) {
+                <p [ngStyle]="{color: 'red'}">Le nom d'utilisateur doit comporter au maximum 15 caractères</p>
+                }
+            </div>
+
+            <div class="form-group">
+                <input type="email" id="email" name="email" placeholder="Email" [(ngModel)]="signUp.email" required
+                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" #email="ngModel">
+                @if(email.errors && email.errors['required'] && email.touched) {
+                <p [ngStyle]="{color: 'red'}">L'email est requis</p>
+                } @else if (email.errors && email.errors['pattern']) {
+                <p [ngStyle]="{color: 'red'}">L'email est invalid</p>
+                }
+            </div>
+
+            <div class="form-group">
+                <input type="password" id="password" name="password" placeholder="Mot de passe"
+                    [(ngModel)]="signUp.password" required minlength="8"
+                    pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$" #password="ngModel">
+                @if (password.errors && password.errors['required'] && password.touched) {
+                <p [ngStyle]="{color: 'red'}">Le mot de passe est requis</p>
+                } @else if(password.errors && password.errors['pattern']) {
+                <p [ngStyle]="{color: 'red'}">
+                    Le mot de passe doit contenir au moins un chiffre, une lettre minuscule, un
+                    lettre majuscule, un caractère spécial et comporter au moins 8 caractères
+                    long
+                </p>
+                } @else if (signUp.password !== signUp.confirmPassword){
+                <p [ngStyle]="{color: 'red'}">Les mots de passe ne correspondent pas</p>
+                }
+            </div>
+
+            <div class="form-group">
+                <input type="password" id="confirm_password" name="confirm_password" [(ngModel)]="signUp.confirmPassword"
+                    placeholder="Confirmez le mot de passe" required minlength="8"
+                    pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$" #confirmPassword="ngModel">
+                @if (confirmPassword.errors && confirmPassword.errors['required'] && confirmPassword.touched) {
+                <p [ngStyle]="{color: 'red'}">Veuillez confirmez le mot de passe</p>
+                } @else if(confirmPassword.errors && confirmPassword.errors['pattern'] ) {
+                <p [ngStyle]="{color: 'red'}">
+                    Le mot de passe doit contenir au moins un chiffre, une lettre minuscule, un
+                    lettre majuscule, un caractère spécial et comporter au moins 8 caractères
+                    long
+                </p>
+                } @else if (signUp.password !== signUp.confirmPassword){
+                <p [ngStyle]="{color: 'red'}">Les mots de passe ne correspondent pas</p>
+                }
+            </div>
+            <app-custom-button [btnType]="'submit'" [text]="textButton" [class]="'btn'"></app-custom-button>
+        </form>
+    </div>
+</div>

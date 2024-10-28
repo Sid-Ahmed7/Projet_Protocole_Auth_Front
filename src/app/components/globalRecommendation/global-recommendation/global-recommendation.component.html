@@ -1,0 +1,23 @@
+<div class="recommendation-container">
+    <h2>Recommendations</h2>
+
+    <div class="recommendation-sections">
+        <section class="future-releases-games-section">
+            <div class="section-title">
+                <h3>Prochaines sorties </h3>
+                <a [routerLink]="['/jeux']" class="see-more-recommendations">Voir plus</a>
+            </div>
+            <ul>
+                @for(game of games; track game.id) {
+                <li>
+                    <app-card-game-small [gameName]="game.name" [gameCover]="game.cover" [gameGenre]="game.genre" [release]="game.releaseDate"></app-card-game-small>
+                </li>
+                }
+            </ul>
+        </section>
+    </div>
+</div>
+
+@if(errorMessage) {
+    <p>{{errorMessage}}</p>
+}

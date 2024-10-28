@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="profile-banner-image">
+        <img [src]="bannerUrl" alt="Banner image">
+    </div>
+
+    <div class="profile-picture">
+        <img [src]="profilPictureUrl" alt="Profile picture">
+    </div>
+
+    <section class="user-section">
+        <div class="user-info">
+            <div class="user-header">
+                <h1>{{username}}</h1>
+                <div [ngClass]="{ 'online': isOnline, 'offline': !isOnline }" class="online-indicator">
+                    <span [ngClass]="{ 'online': isOnline, 'offline': !isOnline }" class="blink"></span>
+                </div>
+            </div>
+            <app-custom-button [routerLink]="['/edition']" [btnType]="'button'" [class]="'btn-edit'" [text]="'Edit'"></app-custom-button>
+        </div>
+        <div class="user-bio">
+            <p>{{bio}}</p>
+        </div>
+    </section>
+
+</div>

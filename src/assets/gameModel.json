@@ -1,0 +1,66 @@
+{
+    "gameId": "1",
+    "title": "Persona 3 Reloded",
+    "developer": "Atlus",
+    "publisher": "Sega",
+    "platform": [
+        "PC",
+        "PS5",
+        "Xbox Series X",
+        "Xbox Series S"
+    ],
+    "genres": [
+        "RPG",
+        "JRPG",
+        "Action",
+        "Adventure"
+    ],
+    "releaseDate": "2024-02-02",
+    "description": "Step into the shoes of a transfer student thrust into an unexpected fate when entering the hour hidden between one day and the next. Awaken an incredible power and chase the mysteries of the Dark Hour, fight for your friends, and leave a mark on their memories forever. Persona 3 Reload is a captivating reimagining of the genre-defining RPG, reborn for the modern era.",
+    "cover": "../assets/pictures/Persona_3_Reload_box_art.jpg",
+    "banner": "https://images2.alphacoders.com/134/1348285.png",
+    "screenshots": [
+        "https://cdn.wccftech.com/wp-content/uploads/2023/06/Persona-3-Reload-scaled.jpg",
+        "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2023/07/persona-3-reload-akihiko-sanada-polydeuces1.jpg",
+        "https://pbs.twimg.com/media/F1elmYVXgAAAUrs.jpg:large",
+        "https://www.dexerto.com/cdn-image/wp-content/uploads/2024/02/02/persona-3-reload-all-trophies-and-achievements.jpg?width=3840&quality=60&format=auto"        
+    ],
+    "rating": "4",
+    "characters": [
+        {   
+            "id": "1",
+            "name": "Makoto Yuki",
+            "img": "https://static.wikia.nocookie.net/megamitensei/images/4/4b/Makoto_Yuki_P3R.png/revision/latest/scale-to-width-down/340?cb=20230202180000"
+        },
+        {
+            "id": "2",
+            "name": "Yukari Takeba",
+            "img": "https://static.wikia.nocookie.net/megamitensei/images/4/4b/Yukari_Takeba_P3R.png/revision/latest/scale-to-width-down/340?cb=20230202180000"
+        },
+        {
+            "id": "3",
+            "name": "Junpei Iori",
+            "img": "https://static.wikia.nocookie.net/megamitensei/images/4/4b/Junpei_Iori_P3R.png/revision/latest/scale-to-width-down/340?cb=20230202180000"
+        },
+        {
+            "id": "4",
+            "name": "Akihiko Sanada",
+            "img": "https://static.wikia.nocookie.net/megamitensei/images/4/4b/Akihiko_Sanada_P3R.png/revision/latest/scale-to-width-down/340?cb=20230202180000"
+        },
+        {   
+            "id": "5",
+            "name": "Mitsuru Kirijo",
+            "img": "https://static.wikia.nocookie.net/megamitensei/images/4/4b/Mitsuru_Kirijo_P3R.png/revision/latest/scale-to-width-down/340?cb=20230202180000"
+        },
+        {
+            "id": "6",
+            "name": "Aigis",
+            "img": "https://static.wikia.nocookie.net/megamitensei/images/4/4b/Aigis_P3R.png/revision/latest/scale-to-width-down/340?cb=20230202180000"
+        },
+        {
+            "id": "7",
+            "name": "Koromaru",
+            "img": "https://static.wikia.nocookie.net/megamitensei/images/4/4b/Koromaru_P3R.png/revision/latest/scale-to-width-down/340?cb=20230202180000"
+        }
+    ]
+}

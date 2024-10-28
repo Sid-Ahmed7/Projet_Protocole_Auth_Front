@@ -1,0 +1,149 @@
+@use "../../../import" as *;
+h1{
+  margin-bottom: 0.6rem;}
+
+h2 {
+  margin: 0.5rem 0 1.5rem;
+}
+
+p{
+  font-size: 18px;
+}
+
+#homepage__introduction, #homepage__recommandation, #homepage__lastgame {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-width: 1100px;
+  width: 80%;
+  margin: 0 auto ;
+
+  .homepage__introduction--title-wrapper{
+    margin-bottom: 2rem;
+
+    .homepage__introduction--text{
+      margin-bottom: 2rem;
+    }
+  }
+
+  .homepage__introduction--column{
+    display: flex; 
+    justify-content: space-between;
+    align-items: stretch;
+    margin-bottom: 4rem;
+
+    .homepage__introduction--column-img{
+      width: 360px;
+      height: 360px;
+      object-fit: cover;
+    }
+  
+    .homepage__introduction--text-wrapper{
+      max-width: 550px;
+      padding: 1em;
+  
+      .column__title{
+        margin-top: 0;
+        padding-top: 0;
+      }
+  
+      .column__text{
+        max-width: 500px;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+
+  .homepage__introduction--column:nth-last-of-type(2){
+    flex-direction: row-reverse;
+  }
+
+  #homepage__lastgame {
+    width: 100%;
+  }
+  #homepage__recommandation{
+   width: 100%;
+   padding-bottom: 6rem;
+  }
+
+
+  .home__links{
+    color: #B43E8F;
+    font-size: 18px;
+    font-weight: 700;
+
+    &:hover{
+      color: #fff;
+    }
+  }
+}
+
+
+
+
+
+@media screen and (max-width: 768px){
+  #homepage__introduction, #homepage__recommandation{
+    margin: 0 auto;
+    text-align: center;
+    max-width: 90%;
+
+    h1{
+      font-size: 2rem;
+    }
+    h2{
+      font-size: 1.5rem;
+    }
+    
+    .homepage__introduction--column{
+      flex-direction: column !important;
+      align-items: center;
+      margin-bottom: 2rem;
+  
+      .homepage__introduction--text-wrapper{
+        max-width: 100%;
+  
+        .column__text{
+          text-align: center;
+        }
+      }
+  
+      .homepage__introduction--column-img{
+        width: 60%;
+        height: 200px;
+        object-fit: cover;  
+        margin-bottom: 2rem;
+      }
+    }
+  }
+  
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px){
+  #homepage__introduction, #homepage__lastgame{
+    max-width: 80%;
+    align-items: center;
+  }
+
+  .homepage__introduction--title-wrapper{
+    max-width: 80%;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .homepage__introduction--column{
+    align-items: center;
+  }
+
+  .homepage__introduction--column-img:first-of-type{
+    margin-right: 2rem;
+  }
+  .home__second--img{
+    margin-left: 2rem;
+  }
+
+  #homepage__lastgame{
+    margin-bottom: 2rem;
+    max-width: 100%;
+  }
+}

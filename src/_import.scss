@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+//Variables
+
+//Colors
+$mainColor: #9D4EDD;
+$backgroundColor: #171515;
+$cardColor: #292729;
+$inputColor: #171515;
+$borderColor: #858585;
+
+//Font
+$defaultFont: 'Inter';
+$fontSize_title: 26;
+
+li{
+    color: #fff;
+}
+
+//Mixin
+@mixin defaultStyles {
+    margin: 0;
+    padding: 0;
+    font-family: $defaultFont;
+}
+
+@mixin formStyle {
+    width: 100%;
+    max-width: 30%;
+    margin: rem(0) auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - rem(50));
+
+    .card {
+        width: 100%;
+        min-height: 90vh;
+        background-color: $cardColor;
+        margin: rem(10);
+        padding: rem(40) rem(20) rem(20) rem(20);
+        border-radius: rem(5);
+
+        h2 {
+            font-size: rem($fontSize_title);
+            margin-bottom: rem(20);
+            text-align: center;
+            color: #FFFFFF;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: rem(20);
+
+            .form-group {
+                width: 100%;
+                margin-bottom: rem(32);
+
+                input {
+                    width: 100%;
+                    padding: rem(10);
+                    margin-top: rem(5);
+                    color: white;
+                }
+                input::placeholder {
+                    color: white; 
+                }
+            }
+
+           
+        }
+    }
+}
+
+@mixin formLinks {
+     .form-links {
+                margin-top: rem(24);
+                text-align: center;
+            }
+
+            .form-links a {
+                color: $mainColor;
+                text-decoration: none;
+            }
+
+            .form-links a:hover {
+                text-decoration: underline;
+            }
+
+            .form-links p {
+                margin: rem(15) 0 0 0;
+                color: #FFFFFF;
+            }
+}
+
+
+@mixin center-flex-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    max-width: 1200px;
+    margin: 0;
+  }
+  
+
+
+//Function 
+@function rem($pxVal) {
+    @return calc($pxVal / 16 * 1rem);
+}
+
