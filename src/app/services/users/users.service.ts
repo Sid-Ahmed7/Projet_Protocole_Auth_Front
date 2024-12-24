@@ -29,7 +29,7 @@ export class UsersService {
   }
 
   updateUser(id:number, user:UpdateUser): Observable<any> {
-    return this.http.put(`${this.apiUrl}/users/${id}`, user)
+    return this.http.put(`${this.apiUrl}/users/edit/${id}`, user)
   }
 
   updateImage(id: number, user: User, type: string): Observable<any> {
