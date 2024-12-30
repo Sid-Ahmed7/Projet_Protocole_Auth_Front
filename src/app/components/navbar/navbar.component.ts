@@ -24,7 +24,7 @@ export class NavbarComponent {
   ) {}
   
   isConnected: boolean = false;
-  isAdmin: boolean =true;
+  isAdmin: boolean =false;
   
  ngOnInit() {
    this.authService.isLoggedIn().subscribe((isLoggeIn) =>{
