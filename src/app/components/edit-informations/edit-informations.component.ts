@@ -51,9 +51,9 @@ export class EditInformationsComponent {
   bannerUrl: string = '';
   profilePictureUrl: string = '';
 
-  onUploadBanner(id: number):void {
+  onUploadBanner(id: string):void {
     if (this.userData) {
-      id = this.userData.id as number;
+      id = this.userData.uuid as string;
       this.userData.bannerPicture = this.bannerUrl
       this.userService.updateImage(id, this.userData, "banner").subscribe(data => {
         this.bannerUrl = data.bannerPicture
@@ -61,9 +61,9 @@ export class EditInformationsComponent {
     }
   }
 
-  onUploadProfile(id: number):void {
+  onUploadProfile(id: string):void {
     if(this.userData) { 
-      id = this.userData.id as number;
+      id = this.userData.uuid as string;
       this.userData.profilePicture = this.profilePictureUrl
       this.userService.updateImage(id, this.userData, "profile").subscribe(data => {
       this.profilePictureUrl = data.profilePicture
@@ -71,7 +71,7 @@ export class EditInformationsComponent {
     }
   }
 
-  onSubmitForm(id: number) {
+  onSubmitForm(id: string) {
     const updateUser: UpdateUser = new UpdateUser(this.updateUser.username, this.updateUser.email, this.updateUser.biography, this.updateUser.password)
     this.userService.updateUser(id, updateUser).subscribe(data => {
       this.userData = data;

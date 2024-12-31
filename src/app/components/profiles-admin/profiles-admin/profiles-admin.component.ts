@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class ProfilesAdminComponent {
 
-  @Input() id: number = 0;
+  @Input() id: string = " ";
   @Input() username: string = "";
   @Input() email: string = "";
 

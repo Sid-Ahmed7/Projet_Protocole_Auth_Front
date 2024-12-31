@@ -30,7 +30,7 @@ export const routes: Routes = [
     pathMatch: 'full',
   },
   {
-    path: 'profil/:slug',
+    path: 'profil/:uuid',
     component: ProfileComponent,
     canActivate: [authGuard]
   },

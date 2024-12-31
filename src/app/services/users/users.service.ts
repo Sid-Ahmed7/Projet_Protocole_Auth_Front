@@ -20,24 +20,25 @@ export class UsersService {
     return this.http.get(`${this.apiUrl}/users`)
   }
 
-  getOneBySlug(slug: string): Observable<any> {
-    return this.http.get(`${this.apiUrl}/users/${slug}`)
+  getOneBySlug(uuid: string): Observable<any> {
+    const token = localStorage.getItem('token');
+    return this.http.get(`${this.apiUrl}/users/profile/${uuid}`)
   }
 
   createUser(user:User): Observable<any> {
     return this.http.post(`${this.apiUrl}/users`, user)
   }
 
-  updateUser(id:number, user:UpdateUser): Observable<any> {
-    return this.http.put(`${this.apiUrl}/users/edit/${id}`, user)
+  updateUser(uuid:string, user:UpdateUser): Observable<any> {
+    return this.http.put(`${this.apiUrl}/users/edit/${uuid}`, user)
   }
 
-  updateImage(id: number, user: User, type: string): Observable<any> {
-    return this.http.put(`${this.apiUrl}/users/${id}?picture=${type}`, user)
+  updateImage(uuid: string, user: User, type: string): Observable<any> {
+    return this.http.put(`${this.apiUrl}/users/${uuid}?picture=${type}`, user)
   }
 
-  deleteUser(id:number): Observable<any> {
-    return this.http.delete(`${this.apiUrl}/users/${id}`)
+  deleteUser(uuid:string): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/users/${uuid}`)
   }
 
 }

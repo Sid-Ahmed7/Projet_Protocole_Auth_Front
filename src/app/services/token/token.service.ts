@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { jwtDecode } from "jwt-decode";
 type Token = {
-  id: number;
+  uuid: string;
   sub: string;
   iat: number;
   exp: number;
@@ -24,12 +24,12 @@ export class TokenService {
   deleteToken(): void {
     localStorage.removeItem('token');
   }
-  getIdInToken(): number | undefined {
+  getIdInToken(): string | undefined {
     if (typeof localStorage !== 'undefined') {
       const storedToken = localStorage?.getItem('token');
       if (storedToken) {
         const decoded = jwtDecode<Token>(storedToken);
-        return decoded.id;
+        return decoded.uuid;
       } else {
         return undefined;
       }
@@ -43,7 +43,7 @@ export class TokenService {
       const storedToken = localStorage?.getItem('token');
       if (storedToken) {
         const decoded = jwtDecode<Token>(storedToken);
-        return decoded.slug;
+        return decoded.uuid;
       } else {
         return undefined;
       }

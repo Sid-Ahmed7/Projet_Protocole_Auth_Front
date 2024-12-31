@@ -30,25 +30,24 @@ export class ProfileComponent {
   bio:string = "";
   bannerUrl:string = "";
   profilPictureUrl:string = "";
-  slug:string = "";
+  uuid:string = "";
 
   ngOnInit():void {
     this.authService.isLoggedIn().subscribe(isLoggedIn => {
       this.isOnline = isLoggedIn;
     });
 
-    this.slug = this.tokenService.getSlugInToken() as string;
+    this.uuid = this.tokenService.getSlugInToken() as string;
     this.route.params.subscribe(params => {
-      this.slug = params['slug'];
+      this.uuid = params['uuid'];
     })
 
-    this.userService.getOneBySlug(this.slug).subscribe(data => {
+    this.userService.getOneBySlug(this.uuid).subscribe(data => {
         this.userData = data as User;
         this.username = this.userData.username;
         this.bio = this.userData.biography;
         this.bannerUrl = this.userData.bannerPicture;
         this.profilPictureUrl = this.userData.profilePicture;
-        this.slug = this.userData.slug
       }, 
       (error: HttpErrorResponse) => {
         alert("Nous rencontrons un souci technique, veuillez réessayer dans quelques minutes")

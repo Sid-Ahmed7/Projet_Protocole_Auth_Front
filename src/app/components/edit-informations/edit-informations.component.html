@@ -6,7 +6,7 @@
                 <img [src]="userData?.bannerPicture ? userData?.bannerPicture : './assets/pictures/pexels-ian-panelo-8227166.jpg'" alt="bannerImg" class="banner-img">
                 <input type="text" id="bannerUrl" name="bannerUrl" class="banner-url" [(ngModel)]="bannerUrl"
                     placeholder="Coller ici l'url de votre image">
-                    <app-custom-button [btnType]="'submit'" [text]="textButton" [class]="'btn'" (click)="onUploadBanner(userData?.id!)"></app-custom-button>
+                    <app-custom-button [btnType]="'submit'" [text]="textButton" [class]="'btn'" (click)="onUploadBanner(userData?.uuid!)"></app-custom-button>
             </div> 
         </div>
         <div class="modify-profile-picture">
@@ -15,7 +15,7 @@
                 <img [src]="userData?.profilePicture ? userData?.profilePicture : './assets/pictures/spidey.jpg'" alt="profileImg" class="profile-img">
                 <input type="text" id="profilePictureUrl" name="profilePictureUrl" class="profile-picture-url" [(ngModel)]="profilePictureUrl"
                     placeholder="Coller ici l'url de votre image">
-                    <app-custom-button [btnType]="'submit'" [text]="textButton" [class]="'btn'" (click)="onUploadProfile(userData?.id!)"></app-custom-button>
+                    <app-custom-button [btnType]="'submit'" [text]="textButton" [class]="'btn'" (click)="onUploadProfile(userData?.uuid!)"></app-custom-button>
             </div> 
         </div>
     </div>
@@ -92,7 +92,7 @@
                 <p class="update-message">{{ messageOnUpdate }}</p>
             }
             <div class="button">
-                <app-custom-button [btnType]="'submit'" [text]="textButton" [class]="'btn'" (click)="onSubmitForm(userData?.id!)"></app-custom-button>
+                <app-custom-button [btnType]="'submit'" [text]="textButton" [class]="'btn'" (click)="onSubmitForm(userData?.uuid!)"></app-custom-button>
             </div>
         </form>
     </div>
