@@ -53,37 +53,24 @@ export class GameService {
     return this.http.post<any>('/release_dates', body, { headers: this.headersIGDB });
   }
 
-  addGameToList(storedToken: string, gameID: any): Observable<any> {
+  addGameToList(gameID: any): Observable<any> {
     const params = new HttpParams()
       .set('gameId', gameID)
-    const headers: HttpHeaders = new HttpHeaders({
-      'Authorization': `${this.token.getToken()}`
-    });;
-    return this.http.post<any>(`${this.serveurBaseUrl}/add`, params, { headers: headers });
+    return this.http.post<any>(`${this.serveurBaseUrl}/add`, params, { withCredentials: true  });
 
   }
-  deleteGameInList(storedToken: string, gameId: number): Observable<Game[]> {
-    const headers: HttpHeaders = new HttpHeaders({
-      'Authorization': `${this.token.getToken()}`
-    });;
+  deleteGameInList(gameId: number): Observable<Game[]> {
     if (!gameId) {
       throw new Error('Game ID is required');
     }
     const params = new HttpParams().set('gameId', gameId);
-    return this.http.delete<Game[]>(`${this.serveurBaseUrl}`, { headers: headers, params });
+    return this.http.delete<Game[]>(`${this.serveurBaseUrl}`, {  withCredentials: true , params });
   }
 
   getListGames(): Observable<any[]> | undefined {
-    const headers: HttpHeaders = new HttpHeaders({
-      'Authorization': `${this.token.getToken()}`
-    });;
-    const tokenId = this.token.getIdInToken();
-    if (tokenId) {
-      const params = new HttpParams().set('user_id', tokenId);
-      return this.http.get<any[]>(`${this.serveurBaseUrl}`, { headers: headers, params });
-    } else {
-      return undefined;
-    }
+
+      return this.http.get<any[]>(`${this.serveurBaseUrl}/mes-jeux`, {  withCredentials: true });
+    
   }
 
   getGameById(id: number): Observable<Game[]> {

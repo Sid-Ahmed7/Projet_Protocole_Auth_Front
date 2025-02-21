@@ -7,6 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { TokenService } from '../../services/token/token.service';
 import { AuthService } from '../../services/auth/auth.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-profile',
@@ -22,6 +23,7 @@ export class ProfileComponent {
   private tokenService = inject(TokenService)
   private route = inject(ActivatedRoute);
   private router: Router = inject(Router)
+  private cookieService = inject(CookieService);
 
   public userData?: User;
 
@@ -41,6 +43,8 @@ export class ProfileComponent {
     this.route.params.subscribe(params => {
       this.uuid = params['uuid'];
     })
+
+    // const token = this.cookieService.get('jwt');
 
     this.userService.getOneBySlug(this.uuid).subscribe(data => {
         this.userData = data as User;

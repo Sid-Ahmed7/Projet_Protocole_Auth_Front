@@ -192,9 +192,8 @@ export class GamePageComponent {
   }
 
   addGameToUserList(game: Game) {
-    const storedToken = localStorage.getItem('token');
-    if (storedToken != null) {
-      this.gameService.addGameToList(storedToken, game.id).subscribe(
+
+      this.gameService.addGameToList(game.id).subscribe(
         data => {
           localStorage.setItem(`game_${game.id}`, 'true');
           game.isGameAdded = true;
@@ -203,18 +202,17 @@ export class GamePageComponent {
 },
         error => {
           if (error.status === 500) {
-            this.redirectRoute.navigate(["/connexion"]);
+            this.redirectRoute.navigate(["/game"]);
           }
         }
       );
-    }
+    
   }
 
   deleteGameToUserList(game:Game) {
-    const storedToken = this.tokenService.getToken();
-    if (storedToken != null) {
+    
       if(game.id) {
-        this.gameService.deleteGameInList(storedToken, game.id).subscribe(data => {
+        this.gameService.deleteGameInList( game.id).subscribe(data => {
           localStorage.setItem(`game_${game.id}`, 'false');
           game.isGameAdded = false;
           alert(`${game.name} à été supprimé  à votre liste`)
@@ -227,6 +225,6 @@ export class GamePageComponent {
       );
       }
     
-    }
+    
   }
 }
