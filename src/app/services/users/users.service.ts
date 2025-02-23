@@ -22,7 +22,7 @@ export class UsersService {
 
   getOneBySlug(uuid: string): Observable<any> {
     console.log("UUID envoyé à l'API:", uuid); 
-    return this.http.get(`${this.apiUrl}/users/profile/${uuid}`, { withCredentials: true });
+    return this.http.get(`${this.apiUrl}/users/profile`, { withCredentials: true });
   }
   
 
